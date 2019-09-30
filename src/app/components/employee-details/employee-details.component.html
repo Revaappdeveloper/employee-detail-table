@@ -1,0 +1,96 @@
+<div class="emp-detail-container">
+    <div class="inner-box" *ngIf="!inputBox">
+        <table class="table" id="myTable">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Employee-ID</th>
+                    <th>Employee Name</th>
+                    <th>Employee Designation</th>
+                    <th>Options</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let empDetail of empDetails; let i = index">
+                    <td>{{i + 1}}</td>
+                    <td>{{empDetail.id}}</td>
+                    <td>{{empDetail.name}}</td>
+                    <td>{{empDetail.designation}}</td>
+                    <td><button (click)="editRow(i)">EDIT</button></td>
+                    <td><button (click)="deleteRow(i)">DELETE</button></td>
+
+                </tr>
+                <!-- <tr>
+                    <th scope=" row ">1</th>
+                    <td>{{id}}</td>
+                    <td>{{name}}</td>
+                    <td>{{designation}}</td>
+                </tr>
+                <tr>
+                    <th scope="row ">2</th>
+                    <td>{{id}}</td>
+                    <td>{{name}}</td>
+                    <td>{{designation}}</td>
+                </tr>
+                <tr>
+                    <th scope="row ">3</th>
+                    <td>{{id}}</td>
+                    <td>{{name}}</td>
+                    <td>{{designation}}</td>
+                </tr>
+                <tr>
+                    <th scope="row ">4</th>
+                    <td>{{id}}</td>
+                    <td>{{name}}</td>
+                    <td>{{designation}}</td>
+                </tr>
+                <tr>
+                    <th scope="row ">5</th>
+                    <td>{{id}}</td>
+                    <td>{{name}}</td>
+                    <td>{{designation}}</td>
+                </tr>
+                <tr>
+                    <th scope="row ">6</th>
+                    <td>{{id}}</td>
+                    <td>{{name}}</td>
+                    <td>{{designation}}</td>
+                </tr>
+                <tr>
+                    <th scope="row ">7</th>
+                    <td>{{id}}</td>
+                    <td>{{name}}</td>
+                    <td>{{designation}}</td>
+                </tr>
+                <tr>
+                    <th scope="row ">8</th>
+                    <td>{{id}}</td>
+                    <td>{{name}}</td>
+                    <td>{{designation}}</td>
+                </tr> -->
+            </tbody>
+        </table>
+        <div class="btn-design ">
+            <button class="add-btn " (click)="addRow()">Click to Add</button>
+
+        </div>
+
+
+
+    </div>
+    <div *ngIf="inputBox">
+        <form class="form-signin box-position" style="width: 400px; border: 1px solid grey">
+            <h1 class="h3 mb-3 font-weight-normal">Enter Employee Data</h1>
+            <label for="empID" class="sr-only">empId</label>
+            <input [(ngModel)]="empID" name="empID" type="empId" id="empId" class="form-control" placeholder="empID" required autofocus>
+            <label for="empName" class="sr-only">empName</label>
+            <input [(ngModel)]="empName" name="empName" type="empName" id="empName" class="form-control" placeholder="empName" required>
+            <label for="empDesignation" class="sr-only">empDesignation</label>
+            <input [(ngModel)]="empDesignation" name="empDesignation" type="empDesignation" id="empDesignation" class="form-control" placeholder="empDesignation" required>
+            <button class="btn btn-lg btn-primary btn-block button-size" (click)="saveData()" type="submit">{{btnText}}</button>
+        </form>
+    </div>
+
+
+</div>
